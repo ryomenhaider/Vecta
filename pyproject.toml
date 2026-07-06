@@ -1,0 +1,20 @@
+[build-system]
+requires = ["scikit-build-core>=0.9", "pybind11>=2.12"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "vecta"
+version = "0.0.1"
+description = "A from-scratch computational maths library (following Mathematics for Machine Learning) with a C++ core and Python bindings"
+requires-python = ">=3.9"
+readme = "README.md"
+
+[tool.scikit-build]
+wheel.packages = ["python/vecta"]
+cmake.build-type = "Release"
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]

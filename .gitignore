@@ -1,0 +1,23 @@
+# Build artifacts
+build/
+build-tests/
+*.o
+*.so
+*.dylib
+_skbuild/
+dist/
+*.egg-info/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# uv
+uv.lock
+
+# Editors
+.vscode/
+.idea/
+*.swp
