@@ -1,4 +1,4 @@
-#include "include/vecta/linalg/matrix.hpp"
+#include "vecta/linalg/matrix.hpp"
 
 #include <vector>
 #include <cstddef>
