@@ -3,14 +3,37 @@ requires = ["scikit-build-core>=0.9", "pybind11>=2.12"]
 build-backend = "scikit_build_core.build"
 
 [project]
-name = "vecta"
+name = "vecta-math"
 version = "0.0.1"
 description = "A from-scratch computational maths library (following Mathematics for Machine Learning) with a C++ core and Python bindings"
 requires-python = ">=3.9"
 readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Vecta contributors"},
+]
+keywords = ["mathematics", "machine-learning", "linear-algebra", "vector-calculus", "optimization"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: C++",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+urls = {Source = "https://github.com/anomalyco/Vecta", Tracker = "https://github.com/anomalyco/Vecta/issues"}
 
 [tool.scikit-build]
 wheel.packages = ["python/vecta"]
+wheel.platforms = ["manylinux_2_17_x86_64", "manylinux2014_x86_64"]
 cmake.build-type = "Release"
 
 [tool.pytest.ini_options]
