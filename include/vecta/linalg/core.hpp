@@ -3,7 +3,7 @@
 #include <vector>
 #include <cstddef>
 
-#include "include/vecta/linalg/matrix.hpp"
+#include "vecta/linalg/matrix.hpp"
 
 namespace vecta::linalg {
     Matrix matmul(const Matrix& A, const Matrix& B);    
