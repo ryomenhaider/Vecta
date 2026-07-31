@@ -1,2 +1,0 @@
-/mnt/D06A89C26A89A5B6/projects/portfolio/Vecta/CMakeFiles/edit_cache.dir
-/mnt/D06A89C26A89A5B6/projects/portfolio/Vecta/CMakeFiles/rebuild_cache.dir
