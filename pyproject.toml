@@ -9,9 +9,7 @@ description = "A from-scratch computational maths library (following Mathematics
 requires-python = ">=3.9"
 readme = "README.md"
 license = {text = "MIT"}
-authors = [
-    {name = "Vecta contributors"},
-]
+authors = [{name = "Haider Ali (ryomenhaider)"}]
 keywords = ["mathematics", "machine-learning", "linear-algebra", "vector-calculus", "optimization"]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
@@ -29,11 +27,13 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-urls = {Source = "https://github.com/anomalyco/Vecta", Tracker = "https://github.com/anomalyco/Vecta/issues"}
+
+[project.urls]
+Source = "https://github.com/ryomenhaider/Vecta"
+Tracker = "https://github.com/ryomenhaider/Vecta/issues"
 
 [tool.scikit-build]
 wheel.packages = ["python/vecta"]
-wheel.platforms = ["manylinux_2_17_x86_64", "manylinux2014_x86_64"]
 cmake.build-type = "Release"
 
 [tool.pytest.ini_options]
