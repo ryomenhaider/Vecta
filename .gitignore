@@ -8,6 +8,8 @@ _skbuild/
 dist/
 *.egg-info/
 
+.pypirc
+
 # Python
 __pycache__/
 *.pyc
