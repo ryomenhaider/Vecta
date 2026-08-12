@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/operators.h>
 #include "vecta/linalg/matrix.hpp"
-#include "vecta/linalg/ops.hpp"
+#include "vecta/linalg/core.hpp"
 
 namespace py = pybind11;
 using namespace vecta::linalg;

@@ -20,3 +20,5 @@ FetchContent_MakeAvailable(pybind11)
 pybind11_add_module(_vecta src/bindings.cpp)
 target_link_libraries(_vecta PRIVATE vecta_core)
 target_include_directories(_vecta PRIVATE include)
+
+install(TARGETS _vecta DESTINATION vecta)
