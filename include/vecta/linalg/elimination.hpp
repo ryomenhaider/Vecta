@@ -1,7 +1,6 @@
 #pragma once
 
 #include "vecta/linalg/core.hpp"
-#include "vecta/linalg/matrix.hpp"
 
 namespace vecta::linalg 
 {
