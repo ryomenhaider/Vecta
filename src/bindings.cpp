@@ -12,6 +12,28 @@ PYBIND11_MODULE(_vecta, m) {
     py::class_<Matrix<double>>(m, "Matrix")
         .def(py::init<std::size_t, std::size_t, double>(),
              py::arg("rows"), py::arg("cols"), py::arg("init") = 0.0)
+        .def(py::init([](const py::list& rows) {
+                 if (rows.empty()) {
+                     throw std::invalid_argument("Matrix requires at least one row");
+                 }
+                 std::size_t nrows = rows.size();
+                 std::size_t ncols = py::cast<py::list>(rows[0]).size();
+                 if (ncols == 0) {
+                     throw std::invalid_argument("Matrix requires at least one column");
+                 }
+                 Matrix<double> result(nrows, ncols);
+                 for (std::size_t i = 0; i < nrows; i++) {
+                     py::list row = py::cast<py::list>(rows[i]);
+                     if (row.size() != ncols) {
+                         throw std::invalid_argument("Matrix rows must be rectangular");
+                     }
+                     for (std::size_t j = 0; j < ncols; j++) {
+                         result(i, j) = py::cast<double>(row[j]);
+                     }
+                 }
+                 return result;
+             }),
+             py::arg("rows"))
         .def("rows", &Matrix<double>::rows)
         .def("cols", &Matrix<double>::cols)
         .def("__call__",
