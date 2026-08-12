@@ -10,11 +10,11 @@ reaching for a library.
 The linear-algebra core is up and running as a header-only C++ template library,
 exposed to Python through a single pybind11 module:
 
-- `Matrix<T>` — row-major dense matrix with `(i, j)` access
+- `Matrix` — row-major dense matrix with numpy-style construction and indexing
 - `matmul`, `add`, `scalar_mul` — arithmetic (with dimension checking)
-- `transpose`, `identity`, `is_symmetric`
+- `transpose`, `identity` / `eye`, `is_symmetric`
 
-C++ and Python test suites are planned but not written yet.
+C++ test suites are planned but not written yet.
 
 ## Stack
 
@@ -28,7 +28,7 @@ C++ and Python test suites are planned but not written yet.
 ```
 include/vecta/linalg/        C++ headers (header-only core)
     matrix.hpp               Matrix<T> class
-    ops.hpp                  matmul, add, scalar_mul, transpose, identity, is_symmetric
+    core.hpp                  matmul, add, scalar_mul, transpose, identity, is_symmetric
 src/bindings.cpp             pybind11 binding code (module `_vecta`)
 python/vecta/                Python package wrapper (imports `_vecta`)
 examples/                    scratch space for worked examples from the book
@@ -50,14 +50,28 @@ Rebuild + reinstall the Python module after changing C++ code:
 uv pip install -e . --no-build-isolation
 ```
 
-Try it from Python:
-```python
-from vecta import _vecta as v
+## Install
 
-A = v.Matrix(2, 2)
-A.set(0, 0, 1); A.set(1, 1, 1)
-print(v.matmul(A, v.identity(2)))
-print(v.is_symmetric(A))
+```bash
+pip install vecta-math
+```
+
+## Usage
+
+```python
+import vecta as vt
+
+A = vt.array([[1, 2], [3, 4]])    # numpy-style construction
+B = vt.zeros((2, 2))              # vt.ones((r, c)), vt.eye(n) too
+A.shape                           # (2, 2)
+A[0, 1]                           # read element; A[0, 1] = 9 writes (negative indices work)
+A.T                               # transposed copy
+
+C = vt.matmul(A, B)               # dimension mismatch -> ValueError
+D = vt.add(A, B)
+E = vt.scalar_mul(A, 2.0)
+print(vt.transpose(C))
+print(vt.is_symmetric(A))
 ```
 
 ## Roadmap

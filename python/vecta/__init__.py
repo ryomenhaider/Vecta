@@ -1,21 +1,18 @@
-from vecta import _vecta
+from python.vecta.linalg.matrix import Matrix
+from python.vecta.linalg.core import add, array, zeros, ones, eye, identity, is_symmetric, matmul, transpose, scalar_mul
 
-Matrix = _vecta.Matrix
-matmul = _vecta.matmul
-add = _vecta.add
-scalar_mul = _vecta.scalar_mul
-transpose = _vecta.transpose
-identity = _vecta.identity
-is_symmetric = _vecta.is_symmetric
-
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 __all__ = [
     "Matrix",
+    "array",
+    "zeros",
+    "ones",
+    "eye",
+    "identity",
     "matmul",
     "add",
     "scalar_mul",
     "transpose",
-    "identity",
     "is_symmetric",
 ]
