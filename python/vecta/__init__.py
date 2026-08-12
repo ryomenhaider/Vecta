@@ -1,4 +1,7 @@
+# main Matrix class
 from python.vecta.linalg.matrix import Matrix
+
+# core function
 from python.vecta.linalg.core import add, array, zeros, ones, eye, identity, is_symmetric, matmul, transpose, scalar_mul
 
 __version__ = "0.0.3"
